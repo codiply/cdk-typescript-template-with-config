@@ -1,0 +1,3 @@
+AWSAccountID: "<AWS account id>"
+AWSRegion: "<AWS region>"
+Prefix: "<prefix for deploying multiple copies in same account and region>"
