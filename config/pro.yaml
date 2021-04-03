@@ -1,0 +1,4 @@
+Sns:
+  TopicName: 'my-sns-topic'
+Sqs:
+  QueueName: 'my-sqs-queue'
