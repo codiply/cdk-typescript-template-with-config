@@ -10,11 +10,11 @@ export class SqsQueueStack extends cdk.Stack {
     super(scope, id, props);
 
     const queue = new sqs.Queue(this, 'SqsQueue', {
-      queueName: deployment.Prefix+'-'+config.QueueName,
+      queueName: `${deployment.Prefix}-${config.QueueName}`,
       visibilityTimeout: cdk.Duration.seconds(300)
     });
 
-    const topicArn = cdk.Fn.importValue(deployment.Prefix+'-sns-topic-arn');
+    const topicArn = cdk.Fn.importValue(`${deployment.Prefix}-sns-topic-arn`);
     const topic = sns.Topic.fromTopicArn(this, 'SnsTopic', topicArn)
     
     topic.addSubscription(new subs.SqsSubscription(queue));

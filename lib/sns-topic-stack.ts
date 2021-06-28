@@ -8,11 +8,11 @@ export class SnsTopicStack extends cdk.Stack {
     super(scope, id, props);
 
     const topic = new sns.Topic(this, 'SnsTopic', {
-      topicName: deployment.Prefix+'-'+config.TopicName
+      topicName: `${deployment.Prefix}-${config.TopicName}`
     });
 
     new cdk.CfnOutput(this, 'export-sns-topic-arn', { 
-      exportName: deployment.Prefix+'-sns-topic-arn',
+      exportName: `${deployment.Prefix}-sns-topic-arn`,
       value: topic.topicArn 
     });
   }
